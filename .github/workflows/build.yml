@@ -10,7 +10,7 @@ permissions:
 
 jobs:
     build:
-        runs-on: macos-latest
+        runs-on: macos-26
 
         steps:
             - name: Checkout
@@ -29,29 +29,23 @@ jobs:
                     CODE_SIGN_IDENTITY="" \
                     CODE_SIGNING_REQUIRED=NO \
                     CODE_SIGNING_ALLOWED=NO \
-                    SKIP_INSTALL=NO \
-                    ENABLE_BITCODE=NO \
-                    COMPRESS_PNG_FILES=NO \
-                    STRIP_PNG_TEXT=NO \
-                    ASSETCATALOG_COMPILER_SKIP_APP_STORE_DEPLOYMENT=YES \
-                    2>&1 | tail -100
+                    SKIP_INSTALL=NO
 
-            - name: Export App
+            - name: Copy App
               run: |
-                  xcodebuild -exportArchive \
-                    -archivePath build/LucideIcons.xcarchive \
-                    -exportPath build/export \
-                    -exportOptionsPlist ExportOptions.plist
+                  cp -r "build/LucideIcons.xcarchive/Products/Applications/Lucide Icons.app" .
 
-            - name: Zip App
+            - name: Create DMG
               run: |
-                  cd build/export
-                  zip -r ../../LucideIcons-${{ github.ref_name }}.zip "Lucide Icons.app"
+                  hdiutil create -volname "Lucide Icons" \
+                    -srcfolder "Lucide Icons.app" \
+                    -ov -format UDZO \
+                    LucideIcons-${{ github.ref_name }}.dmg
 
             - name: Create Release
               uses: softprops/action-gh-release@v2
               with:
-                  files: LucideIcons-${{ github.ref_name }}.zip
+                  files: LucideIcons-${{ github.ref_name }}.dmg
                   generate_release_notes: true
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
