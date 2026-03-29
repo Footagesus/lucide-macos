@@ -16,14 +16,11 @@ jobs:
             - name: Select Xcode
               run: sudo xcode-select -s /Applications/Xcode_16.2.app
 
-            - name: List files
-              run: find . -name "*.xcodeproj" -maxdepth 4
-
             - name: Build Archive
               run: |
                   xcodebuild archive \
                     -scheme "lucide-macos" \
-                    -project lucide-macos/lucide_macos.xcodeproj \
+                    -project lucide-macos.xcodeproj \
                     -configuration Release \
                     -archivePath build/LucideIcons.xcarchive \
                     CODE_SIGN_IDENTITY="" \
