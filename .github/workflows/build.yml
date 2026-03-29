@@ -33,7 +33,8 @@ jobs:
                     ENABLE_BITCODE=NO \
                     COMPRESS_PNG_FILES=NO \
                     STRIP_PNG_TEXT=NO \
-                    ASSETCATALOG_COMPILER_SKIP_APP_STORE_DEPLOYMENT=YES
+                    ASSETCATALOG_COMPILER_SKIP_APP_STORE_DEPLOYMENT=YES \
+                    2>&1 | tail -100
 
             - name: Export App
               run: |
