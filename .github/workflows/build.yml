@@ -22,14 +22,15 @@ jobs:
             - name: Build Archive
               run: |
                   xcodebuild archive \
-                      -scheme "lucide-macos" \
-                      -project lucide-macos.xcodeproj \
-                      -configuration Release \
-                      -archivePath build/LucideIcons.xcarchive \
-                      CODE_SIGN_IDENTITY="" \
-                      CODE_SIGNING_REQUIRED=NO \
-                      CODE_SIGNING_ALLOWED=NO \
-                      ASSETCATALOG_COMPILER_APPICON_NAME=Lucide
+                    -scheme "lucide-macos" \
+                    -project lucide-macos.xcodeproj \
+                    -configuration Release \
+                    -archivePath build/LucideIcons.xcarchive \
+                    CODE_SIGN_IDENTITY="" \
+                    CODE_SIGNING_REQUIRED=NO \
+                    CODE_SIGNING_ALLOWED=NO \
+                    THIN_PRODUCT_PACKAGE_AFTER_ARCHIVING=NO \
+                    ASSETCATALOG_COMPILER_OPTIMIZATION=nothing
 
             - name: Export App
               run: |
