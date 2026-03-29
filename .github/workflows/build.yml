@@ -20,7 +20,7 @@ jobs:
               run: |
                   xcodebuild archive \
                     -scheme "lucide-macos" \
-                    -project lucide_macos.xcodeproj \
+                    -project lucide-macos/lucide_macos.xcodeproj \
                     -configuration Release \
                     -archivePath build/LucideIcons.xcarchive \
                     CODE_SIGN_IDENTITY="" \
