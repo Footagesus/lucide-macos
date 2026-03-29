@@ -10,7 +10,7 @@ permissions:
 
 jobs:
     build:
-        runs-on: macos-26.3
+        runs-on: macos-latest
 
         steps:
             - name: Checkout
