@@ -29,8 +29,11 @@ jobs:
                     CODE_SIGN_IDENTITY="" \
                     CODE_SIGNING_REQUIRED=NO \
                     CODE_SIGNING_ALLOWED=NO \
-                    THIN_PRODUCT_PACKAGE_AFTER_ARCHIVING=NO \
-                    ASSETCATALOG_COMPILER_OPTIMIZATION=nothing
+                    SKIP_INSTALL=NO \
+                    ENABLE_BITCODE=NO \
+                    COMPRESS_PNG_FILES=NO \
+                    STRIP_PNG_TEXT=NO \
+                    ASSETCATALOG_COMPILER_SKIP_APP_STORE_DEPLOYMENT=YES
 
             - name: Export App
               run: |
