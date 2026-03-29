@@ -8,3 +8,7 @@
 > This app can be laggy
 
 # This is NOT an official application from official developers!!
+
+## Credits:
+
+- [Lucide Icons](https://github.com/lucide-icons/lucide)
