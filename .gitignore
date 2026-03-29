@@ -1,0 +1,13 @@
+.DS_Store
+build/
+*.xcarchive
+*.xcuserstate
+xcuserdata/
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+Pods/
+.build/
+Package.resolved
